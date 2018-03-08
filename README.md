@@ -1,19 +1,17 @@
 部署Python Flasky程序到Heroku
 =====
 
-学习完《FlaskWeb开发：基于Python的Web应用开发实战》(第一版)后，我参照本书及网络上的方法将[**Flasky项目第一版**](https://github.com/miguelgrinberg/flasky-first-edition.git)成功部署到Heroku，这是README说明纪录。
+学习完《FlaskWeb开发：基于Python的Web应用开发实战》(第一版)后，我参照本书及网络上的方法将[**Flasky项目第一版**](https://github.com/miguelgrinberg/flasky-first-edition.git)成功部署到Heroku，这里是README.md说明纪录。
 
-上线网址:https://mgflask.herokuapp.com
+部署上线网址:https://mgflask.herokuapp.com
 
 部署项目上线对我来说并不是一件容易的事，Flaskapp项目代码全部来自于flasky-first-edition，不过结合实际业务测试和功能测试，对很多地方进行了修改，部署分为两个部分，Part1是提取正确的git版本，Part2是push代码到Heroku。
 
 ## Part1: 提取正确的git版本
 
-部署项目上线对我来说并不是一件容易的事，Flaskapp项目代码全部来自于flasky-first-edition，不过结合实际业务测试和功能测试，对很多地方进行了修改，请见下面详细内容。
-
 首先参考[(first update)终于成功部署在heroku上了，欢迎交流](http://cocode.cc/t/first-update-heroku/3711)里面的第一、二两步提取正确代码版本，这两步操作过程中，我踩过的坑如下。
 
-### Flasky项目版本
+#### Flasky项目版本
 
 作者guog是在15年11月部署的，现在是18年3月，时间隔了这么久，Miguel Grinberg的Flasky项目本身就迭代了很多版本。我使用的书是《FlaskWeb开发：基于Python的Web应用开发实战》第一版，因此Flasky版本必须使用**[Flasky项目第一版](https://github.com/miguelgrinberg/flasky-first-edition.git)**，一开始我取错了版本，拿的是**[Flasky项目第二版](https://github.com/miguelgrinberg/flasky.git)**，参照guog操作时总是弄不对。千万注意这一点。
 
@@ -25,19 +23,13 @@
 
 > 3.要使用Heroku,程序必须托管在远程Git仓库中，本地也要有一个一样的Git仓库。你的程序代码应该与作者代码的版本”17c“类似,17b也行,不过用17c的话部署的过程就不用再打代码和提交变动到远程仓库，所以我建议是用17c。（ps 17d版本是把程序架设在传统的托管上的， 跟部署在Heroku无关）
 
-通过这篇[Git如何clone非maser分支代码](http://blog.csdn.net/github_35160620/article/details/53869906)讲解git checkout命令的文章，我弄明白了git checkout操作，不留问号地将17c版本提取出来。
-
-![git branch](learning-flask/Jietu20180307-174649.jpg)
-
-将flasky-first-edition clone到本地后，使用git branch和git tag命令可以检查当前分支和所有历史版本。然后使用"git checkout 17c"就可以提取我们需要的17c版本。
-
 #### 拷贝Git代码注意事项
 
 我按照作者guog描述的步骤，使用 "git clone https://github.com/benbendemo/Flaskapp" 操作先在本地建立了一个Flaskapp仓库，然后将flasky-first-edition里面全部内容拷贝到Flaskapp里面，有前辈提醒注意不要把flasky-first-edition包里的.git文件夹拷贝到待部署的仓库（我的就是Flaskapp），否则后面会出错。可能我使用的是Mac，并没有发生这个情况。
 
 通过这篇[Git如何clone非maser分支代码](http://blog.csdn.net/github_35160620/article/details/53869906)讲解git checkout命令的文章，我弄明白了git checkout操作，不带疑问地将17c版本提取出来。
 
-![git branch](learning-flask/Jietu20180307-174649.jpg)
+![git branch](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-174649.jpg)
 
 将flasky-first-edition clone到本地后，使用git branch和git tag命令可以检查当前分支和所有历史版本。然后使用"git checkout 17c"就可以提取我们需要的17c版本。这两个命令现在对我来说驾轻就熟，但解决问题之前，花费了我不少时间。
 
@@ -47,11 +39,11 @@
 
 Mac终端里使用"ls -a"查看目录，使用"open .git"可以打开.git文件夹（**真的是文件夹！**）。
 
-![.git文件夹](learning-flask/Jietu20180307-175754.jpg)
+![.git文件夹](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-175754.jpg)
 
 点击.git文件夹里面的config文本文件，可以查看当前git仓库的源信息。
 
-![.git文件夹信息](learning-flask/Jietu20180307-175911.jpg)
+![.git文件夹信息](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-175911.jpg)
 
 我就是使用这种方法，确保从flasky-first-edition包拷贝到Flaskapp包，git配置信息没有弄错。
 
@@ -63,7 +55,7 @@ Mac终端里使用"ls -a"查看目录，使用"open .git"可以打开.git文件�
 
 基本操作和Rain同学的一致，只不过现在创建出来的Postgresql数据库，名称不是他文中所写的形式，现在变成"postgresql-concave-36557"这种形式。
 
-![heroku create postgresql](learning-flask/Jietu20180307-181147@2x.jpg)
+![heroku create postgresql](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-181147@2x.jpg)
 
 使用Heroku config设置好环境变量后，就可以将本地Flaskapp仓库里面的内容提交到Heroku服务器。设置config变量参照Rain同学文中步骤即可，我就不多余贴图了。
 
@@ -80,21 +72,23 @@ $ git commit -am "make it better"(描述信息可以随便输，会保存到git�
 
 我在push代码过程中，遇到下图中的问题。
 
-![buildpack error](learning-flask/Jietu20180307-182814.jpg)
+![buildpack error](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-182814.jpg)
 
 上面这个问题，在Flaskapp仓库下面使用"git init"命令即可解决，解决后重新push时提示安装的是python 3.6.4版本，因为Heroku现在对新建的Python应用默认都使用`python-3.6.4`版本。在参考SO人家的发帖后，通过Heroku官网给出关于[Buildpacks](https://devcenter.heroku.com/articles/buildpacks)和[Python runtime](https://devcenter.heroku.com/articles/python-runtimes#supported-python-runtimes)的提示，我创建了runtime.txt文件，加入到了Flaskapp包的根目录。
 
 在Mac终端Flaskapp目录下使用"touch runtime.txt"即可创建文件，文件内容用来指定Heroku部署项目时使用的编译环境，这里我使用`python-2.7.14`。
 
-![runtime.txt](learning-flask/Jietu20180307-182003.jpg)
+![runtime.txt](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-182003.jpg)
 
 #### 安装Postgresql驱动包psycopg2报错
 
 解决了Python部署问题后，我以为可以大功告成，没想到在安装psycopg2包时出现报错。报错提示："Error: could not determine PostgreSQL version from '10.3'"，在SO和github上都搜不到解决办法。最后想到可能是psycopg2包和当前Postgresql版本不匹配的原因。
 
-![Download psycopg2报错](learning-flask/Jietu20180307-184234.jpg)
+![Download psycopg2报错](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-184234.jpg)
 
-使用"heroku pg:info"查看Heroku服务器里面Postgresql当前版本，版本号为10.2。![Heroku pg version](learning-flask/Jietu20180307-183620.jpg)
+使用"heroku pg:info"查看Heroku服务器里面Postgresql当前版本，版本号为10.2。
+
+![Heroku pg version](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180307-183620.jpg)
 
 查询psycopg2官网后，最新版本是psycopg2 2.7.4。于是将requirements.txt文件"psycopg2==2.5.1"换成"psycopg2==2.7.4"。重新push后，Deploy成功。
 
