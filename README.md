@@ -8,21 +8,22 @@
 部署项目上线对我来说并不是一件容易的事，Flaskapp项目代码全部来自于flasky-first-edition，不过结合实际业务测试和功能测试，对很多地方进行了修改，请见下面详细内容。
 
 -------
-参考[(first update)终于成功部署在heroku上了，欢迎交流](http://cocode.cc/t/first-update-heroku/3711)这篇里面的第一、二两步，这两步操作过程中，我踩过的坑如下。
+首先参考[(first update)终于成功部署在heroku上了，欢迎交流](http://cocode.cc/t/first-update-heroku/3711)里面的第一、二两步提取正确代码版本，这两步操作过程中，我踩过的坑如下。
 
-#### Flasky项目版本
+### Flasky项目版本
 
-作者guog是在15年11月部署的，现在是18年3月，时间跨度太长，Miguel Grinberg的Flasky项目本身就迭代了很多版本。我使用的书是《FlaskWeb开发：基于Python的Web应用开发实战》第一版，因此Flasky版本必须使用**[Flasky项目第一版](https://github.com/miguelgrinberg/flasky-first-edition.git)**，一开始我取错了版本，拿的是**[Flasky项目第二版](https://github.com/miguelgrinberg/flasky.git)**，参照guog操作时总是弄不对。千万注意。
+作者guog是在15年11月部署的，现在是18年3月，时间隔了这么久，Miguel Grinberg的Flasky项目本身就迭代了很多版本。我使用的书是《FlaskWeb开发：基于Python的Web应用开发实战》第一版，因此Flasky版本必须使用**[Flasky项目第一版](https://github.com/miguelgrinberg/flasky-first-edition.git)**，一开始我取错了版本，拿的是**[Flasky项目第二版](https://github.com/miguelgrinberg/flasky.git)**，参照guog操作时总是弄不对。千万注意这一点。
 
-#### Github checkout操作要熟练
+### Github checkout操作务必熟练
 
-部署项目到Heroku这个过程很考验对Git命令的熟练程度，如果你对Git命令各种操作已经驾轻就熟，那么相对来说，这里你会容易很多。
+部署项目到Heroku这个过程很考验对Git命令的熟练程度，如果你对Git命令各种操作已经驾轻就熟，那么相对来说，这里你会容易很多。我在实际部署中，采用的是[分享一下flask程序部署到heroku平台的过程](http://cocode.cc/t/flask-heroku/4253)作者Rain建议的17c版本，并没有使用guog同学说的17d版本。
 
-我在实际部署中，采用的是[分享一下flask程序部署到heroku平台的过程](http://cocode.cc/t/flask-heroku/4253)作者Rain建议的17c版本，并没有使用guog同学说的17d版本。
+以下是Rain同学建议使用17c的理由。
 
 > 3.要使用Heroku,程序必须托管在远程Git仓库中，本地也要有一个一样的Git仓库。你的程序代码应该与作者代码的版本”17c“类似,17b也行,不过用17c的话部署的过程就不用再打代码和提交变动到远程仓库，所以我建议是用17c。（ps 17d版本是把程序架设在传统的托管上的， 跟部署在Heroku无关）
 
-通过这篇[Git如何clone非maser分支代码](http://blog.csdn.net/github_35160620/article/details/53869906)讲解git checkout命令的文章，我明白了git checkout该怎么玩，成功将17c版本提取出来。
+通过这篇[Git如何clone非maser分支代码](http://blog.csdn.net/github_35160620/article/details/53869906)讲解git checkout命令的文章，我弄明白了git checkout操作，不带疑问地将17c版本提取出来。
+
 
 ![git branch](learning-flask/Jietu20180307-174649.jpg)
 
