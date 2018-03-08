@@ -30,7 +30,7 @@
 
 #### 拷贝Git代码注意事项：
 
-我按照作者guog描述的步骤，使用"git clone https://github.com/benbendemo/Flaskapp" 操作先在本地建立了一个Flaskapp仓库。然后将flasky-first-edition里面全部内容拷贝到Flaskapp里面来，有前辈提醒注意不要把flasky-first-edition包里的.git文件夹拷贝到待部署的仓库（我的就是Flaskapp），否则后面会出错。可能我使用的是Mac，并没有发生这个情况。
+我按照作者guog描述的步骤，使用"git clone https://github.com/benbendemo/Flaskapp" 操作先在本地建立了一个Flaskapp仓库（注意:一开始Flaskapp是空仓库）。然后将flasky-first-edition里面全部内容拷贝到Flaskapp里面来，有前辈提醒注意不要把flasky-first-edition包里的.git文件夹拷贝到待部署的仓库（我的就是Flaskapp），否则后面会出错。可能我使用的是Mac，并没有发生这个情况。
 
 Mac终端里使用"ls -a"查看目录，使用"open .git"可以打开.git文件夹（**真的是文件夹！**）。
 
@@ -242,14 +242,14 @@ heroku restart
 
 #### 更新代码到Github：
 
-最后将Flaskapp里面全部代码更新到我的Github仓库。
+最后将本地Flaskapp里面全部代码更新到我的Github远程仓库。
 
 > git add . 
 > git commit -m "ver 1.0" (描述信息可以随便输，会保存到git操作记录里面)
 > git push -u origin master 
 
 
-**原文出处：**
+## 原文出处：
 http://bigbigben.com/2018/02/27/learning-flask/
 
 
