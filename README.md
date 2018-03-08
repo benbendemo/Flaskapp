@@ -30,7 +30,7 @@
 
 #### 拷贝Git代码注意事项：
 
-我按照作者guog描述的步骤，使用"git clone https://github.com/benbendemo/Flaskapp"操作先在本地建立了一个Flaskapp仓库。然后将flasky-first-edition里面全部内容拷贝到Flaskapp里面来，有前辈提醒注意不要把flasky-first-edition包里的.git文件夹拷贝到待部署的仓库（我的就是Flaskapp），否则后面会出错。可能我使用的是Mac，并没有发生这个情况。
+我按照作者guog描述的步骤，使用"git clone https://github.com/benbendemo/Flaskapp" 操作先在本地建立了一个Flaskapp仓库。然后将flasky-first-edition里面全部内容拷贝到Flaskapp里面来，有前辈提醒注意不要把flasky-first-edition包里的.git文件夹拷贝到待部署的仓库（我的就是Flaskapp），否则后面会出错。可能我使用的是Mac，并没有发生这个情况。
 
 Mac终端里使用"ls -a"查看目录，使用"open .git"可以打开.git文件夹（**真的是文件夹！**）。
 
@@ -248,8 +248,10 @@ heroku restart
 > git commit -m "ver 1.0" (描述信息可以随便输，会保存到git操作记录里面)
 > git push -u origin master 
 
+
 **原文出处：**
 http://bigbigben.com/2018/02/27/learning-flask/
+
 
 **参考资料：**
 - [(first update)终于成功部署在heroku上了，欢迎交流](http://cocode.cc/t/first-update-heroku/3711)
@@ -257,3 +259,4 @@ http://bigbigben.com/2018/02/27/learning-flask/
 - [【flasky/heroku/部署】（欢迎大家挑刺和补充）可能是目前为止最详细的了](http://cocode.cc/t/flasky-heroku/6589)
 - [Heroku 使用教程](https://www.jianshu.com/p/7bc34e56fa39)
 - [使用git将本地代码项目上传到github](http://www.cnblogs.com/lazyJavaer-lyn/p/6890388.html)
+
