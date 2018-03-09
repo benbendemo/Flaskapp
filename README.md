@@ -248,6 +248,13 @@ heroku restart
 > git commit -m "ver 1.0" (描述信息可以随便输，会保存到git操作记录里面)
 > git push -u origin master 
 
+#### Heroku App测试成功截图：
+
+使用邮箱注册，能成功收到管理员发送的“账户确认”邮件，点击确认链接，邮箱注册确认成功。登陆后，在Home页面，能过成功显示写博客页面。（奇怪的是，我在本地Mac电脑使用17c和17d，安装这个步骤操作，注册邮箱等能够成功，但始终没有写博客页面，不知道为什么？）
+
+![Heroku Home Page](https://github.com/benbendemo/Flaskapp/blob/master/app/static/photo/Jietu20180309-174226%402x.jpg)
+
+测试能够成功，Flaskapp这个练手项目就先到这里，我需要腾出时间去做其它的事情。日后有空再做完善吧。
 
 ## 原文出处：
 http://bigbigben.com/2018/02/27/learning-flask/
